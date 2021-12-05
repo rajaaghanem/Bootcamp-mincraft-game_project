@@ -1,3 +1,5 @@
+import {gameBoard, theGame, resetGame, CreatingTheBoard} from '/game.js';
+const secoundBoard = document.querySelector('[data-board="secound-board"]');
 
 export let matrixSecound = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -25,4 +27,10 @@ export let matrixSecound = [
   ];
 
 
-
+  secoundBoard.addEventListener("click", (event) => {
+      theGame.board = "secound";
+      gameBoard.style.backgroundColor = "rgb(89, 177, 218)";
+      resetGame(matrixSecound);
+      CreatingTheBoard(matrixSecound);
+    });
+  
