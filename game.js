@@ -78,8 +78,6 @@ function CreatingTheBoard(matrixEl) {
   for (let i = 0; i < matrixEl.length; i++) {
     for (let j = 0; j < matrixEl[i].length; j++) {
       let gameElement = document.createElement("div");
-      // gameElement.setAttribute("data-x", i);
-      // gameElement.setAttribute("data-y", j);
 
       switch (matrixEl[i][j]) {
         case 7:
@@ -116,7 +114,6 @@ function addElement(gameElement, i, j) {
   gameElement.style.gridRowStart = i;
   gameElement.style.gridColumnStart = j;
   gameBoard.appendChild(gameElement);
-  // console.log(gameElement.getAttribute("data-x"));
 }
 
 // the gamer celectd the pickaxe tool
