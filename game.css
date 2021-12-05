@@ -95,6 +95,10 @@
   background: url(/images/minecraft_tree.jpg) no-repeat center center/cover;
 }
 
+.dark-oak {
+  background: url(/images/dark-oak.jpg) no-repeat center center/cover;
+}
+
 .gray {
   background: url(/images/minecraft_stone_brick_simple_texture_wallpaper_by_elbarnzo_d82j2kd-fullview.jpg)
     no-repeat center center/cover;

@@ -32,7 +32,8 @@ let colors = {
   stones: "stones",
   darkPacks: "dark-packs",
   darkGreen : "dark-green",
-  darkBrownMode : "dark-mode-brwon"
+  darkBrownMode : "dark-mode-brwon",
+  darkOak:"dark-oak"
 };
 
 let matrix = [
@@ -95,6 +96,9 @@ function CreatingTheBoard(matrixEl) {
       let gameElement = document.createElement("div");
 
       switch (matrixEl[i][j]) {
+        case 11:
+          gameElement.classList.add(colors.darkOak);
+          break;
         case 10:
           gameElement.classList.add(colors.darkBrownMode);
           break;
@@ -197,7 +201,9 @@ gameBoard.addEventListener("click", (e) => {
       if (
         e.target.classList.value === colors.darkbrown ||
         e.target.classList.value === colors.green ||
-        e.target.classList.value === colors.darkGreen
+        e.target.classList.value === colors.darkGreen||
+        e.target.classList.value === colors.darkOak
+
 
       ) {
         inventoryClasses(e.target.classList.value);
