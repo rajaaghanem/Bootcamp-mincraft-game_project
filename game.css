@@ -68,9 +68,9 @@
   grid-template-columns: repeat(20, 1fr);
 }
 
-.blue {
+/* .blue {
   background-color: rgb(89, 177, 218);
-}
+} */
 .green {
   background: url(/images/tree.jfif) no-repeat center center/cover;
 }
