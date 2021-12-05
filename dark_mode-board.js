@@ -1,4 +1,5 @@
 import { gameBoard, theGame, resetGame, CreatingTheBoard } from "/game.js";
+
 const darkBoard = document.querySelector('[data-board="dark-board"]');
 
 export let matrixDark = [
