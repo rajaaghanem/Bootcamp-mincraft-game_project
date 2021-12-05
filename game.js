@@ -30,6 +30,7 @@ let colors = {
   gray: "gray",
   packs: "packs",
   stones: "stones",
+  darkPacks: "dark-packs"
 };
 
 let matrix = [
@@ -92,6 +93,9 @@ function CreatingTheBoard(matrixEl) {
       let gameElement = document.createElement("div");
 
       switch (matrixEl[i][j]) {
+        case 8:
+          gameElement.classList.add(colors.darkPacks);
+          break;
         case 7:
           gameElement.classList.add(colors.stones);
           break;
