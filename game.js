@@ -1,11 +1,11 @@
 import { matrixSecound } from "/game_board-secound.js";
 import { matrixDark } from "/dark_mode-board.js";
 import { pickaxe, shovel, axe} from "/tools.js";
+import {inventory, inventoryClasses, resetInventory} from "/inventory.js";
 
 const startButton = document.querySelector(".start-btn");
 const landingPage = document.querySelector(".landing-page");
 const activeClass = document.querySelector(".active-btn");
-export let inventory = document.querySelector(".inventory-btn");
 const resetButton = document.querySelector(".reset-btn");
 export const gameBoard = document.querySelector(".game-board");
 const firstBoard = document.querySelector('[data-board="first-board"]');
@@ -180,25 +180,6 @@ gameBoard.addEventListener("click", (e) => {
 
 });
 
-//clicking on the inventory button
-inventory.addEventListener("click", (event) => {
-  theGame.clickedOnInventory = true;
-  if (!inventory.classList.value) theGame.isEmptyInventory = true;
-  else theGame.isEmptyInventory = false;
-});
-
-// save the class of the last tile in the inventory
-function inventoryClasses(eTargetClass) {
-  inventory.classList = "";
-  inventory.classList.add(`${eTargetClass}`);
-}
-
-// remove the class from the inventory
-function resetInventory() {
-  inventory.classList = "";
-  theGame.clickedOnInventory = false;
-  theGame.isEmptyInventory = true;
-}
 
 //reset the game-board
 resetButton.addEventListener("click", (event) => {
