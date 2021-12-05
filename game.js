@@ -96,7 +96,6 @@ gameBoard.addEventListener("click", (e) => {
   if (theGame.clickedOnInventory && !theGame.isEmptyInventory) {
     e.target.classList = "";
     e.target.classList.value = inventory.classList.value;
-    console.dir(inventory.classList);
     resetInventory();
   } else {
     switch (theGame.selectedTool) {
@@ -106,7 +105,6 @@ gameBoard.addEventListener("click", (e) => {
           e.target.classList.value === colors.stones
         ) {
           inventoryClasses(e.target.classList.value);
-          console.dir(inventory.classList);
           pickaxe.classList.remove("unactive-btn");
           e.target.classList = "";
         } else pickaxe.classList.add("unactive-btn");
