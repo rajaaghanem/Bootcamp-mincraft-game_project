@@ -30,7 +30,9 @@ let colors = {
   gray: "gray",
   packs: "packs",
   stones: "stones",
-  darkPacks: "dark-packs"
+  darkPacks: "dark-packs",
+  darkGreen : "dark-green",
+  darkBrownMode : "dark-mode-brwon"
 };
 
 let matrix = [
@@ -93,6 +95,12 @@ function CreatingTheBoard(matrixEl) {
       let gameElement = document.createElement("div");
 
       switch (matrixEl[i][j]) {
+        case 10:
+          gameElement.classList.add(colors.darkBrownMode);
+          break;
+        case 9:
+          gameElement.classList.add(colors.darkGreen);
+          break;
         case 8:
           gameElement.classList.add(colors.darkPacks);
           break;
@@ -163,7 +171,7 @@ gameBoard.addEventListener("click", (e) => {
     case "pickaxe":
       if (
         e.target.classList.value === colors.gray ||
-        e.target.classList.value === colors.stones
+        e.target.classList.value === colors.stones 
       ) {
         inventoryClasses(e.target.classList.value);
         console.dir(inventory.classList);
@@ -175,7 +183,9 @@ gameBoard.addEventListener("click", (e) => {
     case "shovel":
       if (
         e.target.classList.value === colors.brown ||
-        e.target.classList.value === colors.packs
+        e.target.classList.value === colors.packs 
+        || e.target.classList.value === colors.darkPacks || e.target.classList.value === colors.darkBrownMode
+
       ) {
         inventoryClasses(e.target.classList.value);
         shovel.classList.remove("unactive-btn");
@@ -186,7 +196,9 @@ gameBoard.addEventListener("click", (e) => {
     case "axe":
       if (
         e.target.classList.value === colors.darkbrown ||
-        e.target.classList.value === colors.green
+        e.target.classList.value === colors.green ||
+        e.target.classList.value === colors.darkGreen
+
       ) {
         inventoryClasses(e.target.classList.value);
         axe.classList.remove("unactive-btn");

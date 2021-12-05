@@ -78,8 +78,17 @@
   background: url(/images/tree.jfif) no-repeat center center/cover;
 }
 
+.dark-green {
+  background: url(/images/dark-green-grass-top-copy.jpg) no-repeat center
+    center/cover;
+}
+
 .brown {
   background: url(/images/dirt.jpg) no-repeat center center/cover;
+}
+
+.dark-mode-brwon {
+  background: url(/images/dark-brown.png) no-repeat center center/cover;
 }
 
 .darkbrown {
