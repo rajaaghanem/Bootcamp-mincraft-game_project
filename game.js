@@ -1,4 +1,5 @@
 import { matrixSecound } from "/game_board-secound.js";
+import { matrixDark } from "/dark_mode-board.js";
 
 const startButton = document.querySelector(".start-btn");
 const landingPage = document.querySelector(".landing-page");
@@ -11,6 +12,7 @@ const resetButton = document.querySelector(".reset-btn");
 const gameBoard = document.querySelector(".game-board");
 const secoundBoard = document.querySelector('[data-board="secound-board"]');
 const firstBoard = document.querySelector('[data-board="first-board"]');
+const darkBoard = document.querySelector('[data-board="dark-board"]')
 
 let theGame = {
   selectedTool: "",
@@ -67,6 +69,12 @@ secoundBoard.addEventListener("click", (event) => {
   CreatingTheBoard(matrixSecound);
 });
 
+darkBoard.addEventListener('click', (event)=>{
+  theGame.board = "dark";
+  resetGame(matrixDark);
+  CreatingTheBoard(matrixDark);
+})
+
 //starting the game
 startButton.addEventListener("click", (event) => {
   landingPage.style.visibility = "hidden";
@@ -102,8 +110,8 @@ function CreatingTheBoard(matrixEl) {
         case 1:
           gameElement.classList.add(colors.gray);
           break;
-        default:
-          gameElement.classList.add(colors.blue);
+        // default:
+        //   gameElement.classList.add(colors.blue);
       }
       addElement(gameElement, i, j);
     }
