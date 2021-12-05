@@ -156,7 +156,7 @@ gameBoard.addEventListener("click", (e) => {
         console.dir(inventory.classList);
         pickaxe.classList.remove("unactive-btn");
         e.target.classList = "";
-        turnBlue("blue", e.target);
+        // turnBlue("blue", e.target);
       } else pickaxe.classList.add("unactive-btn");
       break;
 
@@ -168,7 +168,7 @@ gameBoard.addEventListener("click", (e) => {
         inventoryClasses(e.target.classList.value);
         shovel.classList.remove("unactive-btn");
         e.target.classList = "";
-        turnBlue("blue", e.target);
+        // turnBlue("blue", e.target);
       } else shovel.classList.add("unactive-btn");
       break;
 
@@ -180,12 +180,11 @@ gameBoard.addEventListener("click", (e) => {
         inventoryClasses(e.target.classList.value);
         axe.classList.remove("unactive-btn");
         e.target.classList = "";
-        turnBlue("blue", e.target);
+        // turnBlue("blue", e.target);
       } else axe.classList.add("unactive-btn");
       break;
   }
 }
-resetInventory();
 
 });
 
@@ -197,10 +196,10 @@ inventory.addEventListener("click", (event) => {
 });
 
 // turning divs to blue
-function turnBlue(newClass, eTarget) {
-  eTarget.classList.remove(eTarget.classList.value);
-  eTarget.classList.add(newClass);
-}
+// function turnBlue(newClass, eTarget) {
+//   eTarget.classList.remove(eTarget.classList.value);
+//   eTarget.classList.add(newClass);
+// }
 
 //moving the active class to the selected tool
 function removeActiveClass(eTarget, tool1, tool2) {
