@@ -59,18 +59,21 @@ let matrix = [
 
 firstBoard.addEventListener("click", (event) => {
   theGame.board = "first";
+  gameBoard.style.backgroundColor = "rgb(89, 177, 218)";
   resetGame(matrix);
   CreatingTheBoard(matrix);
 });
 
 secoundBoard.addEventListener("click", (event) => {
   theGame.board = "secound";
+  gameBoard.style.backgroundColor = "rgb(89, 177, 218)";
   resetGame(matrixSecound);
   CreatingTheBoard(matrixSecound);
 });
 
 darkBoard.addEventListener('click', (event)=>{
   theGame.board = "dark";
+  gameBoard.style.backgroundColor = "black";
   resetGame(matrixDark);
   CreatingTheBoard(matrixDark);
 })
