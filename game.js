@@ -47,7 +47,7 @@ let matrix = [
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0],
   [0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0],
   [7, 7, 0, 2, 2, 2, 0, 0, 0, 7, 7, 0, 0, 0, 1, 1, 0, 3, 0, 0, 1],
-  [6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6], //change
+  [6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6], 
   [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
   [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
   [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
@@ -57,13 +57,13 @@ let matrix = [
 
 firstBoard.addEventListener("click", (event) => {
   theGame.board = "first";
-  resetGame();
+  resetGame(matrix);
   CreatingTheBoard(matrix);
 });
 
 secoundBoard.addEventListener("click", (event) => {
   theGame.board = "secound";
-  resetGame();
+  resetGame(matrixSecound);
   CreatingTheBoard(matrixSecound);
 });
 
@@ -75,6 +75,7 @@ startButton.addEventListener("click", (event) => {
 
 //creating the elements
 function CreatingTheBoard(matrixEl) {
+  gameBoard.innerHTML = "";
   for (let i = 0; i < matrixEl.length; i++) {
     for (let j = 0; j < matrixEl[i].length; j++) {
       let gameElement = document.createElement("div");
@@ -154,6 +155,7 @@ gameBoard.addEventListener("click", (e) => {
         inventoryClasses(e.target.classList.value);
         console.dir(inventory.classList);
         pickaxe.classList.remove("unactive-btn");
+        e.target.classList = "";
         turnBlue("blue", e.target);
       } else pickaxe.classList.add("unactive-btn");
       break;
@@ -165,6 +167,7 @@ gameBoard.addEventListener("click", (e) => {
       ) {
         inventoryClasses(e.target.classList.value);
         shovel.classList.remove("unactive-btn");
+        e.target.classList = "";
         turnBlue("blue", e.target);
       } else shovel.classList.add("unactive-btn");
       break;
@@ -176,12 +179,14 @@ gameBoard.addEventListener("click", (e) => {
       ) {
         inventoryClasses(e.target.classList.value);
         axe.classList.remove("unactive-btn");
+        e.target.classList = "";
         turnBlue("blue", e.target);
       } else axe.classList.add("unactive-btn");
       break;
   }
 }
-  
+resetInventory();
+
 });
 
 //clicking on the inventory button
@@ -229,11 +234,11 @@ function resetInventory() {
 
 //reset the game-board
 resetButton.addEventListener("click", (event) => {
-  resetGame();
+  resetGame(matrix);
 });
 
 //reset the game
-function resetGame() {
+function resetGame(matrixEl) {
   gameBoard.innerHTML = "";
   theGame.selectedTool = "";
   theGame.clickedOnInventory = false;
@@ -242,5 +247,5 @@ function resetGame() {
   pickaxe.classList.remove("unactive-btn");
   axe.classList.remove("unactive-btn");
   shovel.classList.remove("unactive-btn");
-  CreatingTheBoard(matrix);
+  CreatingTheBoard(matrixEl);
 }
