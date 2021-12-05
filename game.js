@@ -1,27 +1,23 @@
 import { matrixSecound } from "/game_board-secound.js";
 import { matrixDark } from "/dark_mode-board.js";
+import { pickaxe, shovel, axe} from "/tools.js";
 
 const startButton = document.querySelector(".start-btn");
 const landingPage = document.querySelector(".landing-page");
-const pickaxe = document.querySelector(".pickaxe-btn");
-const shovel = document.querySelector(".shovel-btn");
-const axe = document.querySelector(".axi-btn");
 const activeClass = document.querySelector(".active-btn");
-let inventory = document.querySelector(".inventory-btn");
+export let inventory = document.querySelector(".inventory-btn");
 const resetButton = document.querySelector(".reset-btn");
-const gameBoard = document.querySelector(".game-board");
-const secoundBoard = document.querySelector('[data-board="secound-board"]');
+export const gameBoard = document.querySelector(".game-board");
 const firstBoard = document.querySelector('[data-board="first-board"]');
-const darkBoard = document.querySelector('[data-board="dark-board"]')
 
-let theGame = {
+export let theGame = {
   selectedTool: "",
   clickedOnInventory: false,
   isEmptyInventory: true,
   board: "first",
 };
 
-let colors = {
+export let colors = {
   green: "green",
   brown: "brown",
   darkbrown: "darkbrown",
@@ -68,20 +64,6 @@ firstBoard.addEventListener("click", (event) => {
   CreatingTheBoard(matrix);
 });
 
-secoundBoard.addEventListener("click", (event) => {
-  theGame.board = "secound";
-  gameBoard.style.backgroundColor = "rgb(89, 177, 218)";
-  resetGame(matrixSecound);
-  CreatingTheBoard(matrixSecound);
-});
-
-darkBoard.addEventListener('click', (event)=>{
-  theGame.board = "dark";
-  gameBoard.style.backgroundColor = "black";
-  resetGame(matrixDark);
-  CreatingTheBoard(matrixDark);
-})
-
 //starting the game
 startButton.addEventListener("click", (event) => {
   landingPage.style.visibility = "hidden";
@@ -89,7 +71,7 @@ startButton.addEventListener("click", (event) => {
 });
 
 //creating the elements
-function CreatingTheBoard(matrixEl) {
+export function CreatingTheBoard(matrixEl) {
   gameBoard.innerHTML = "";
   for (let i = 0; i < matrixEl.length; i++) {
     for (let j = 0; j < matrixEl[i].length; j++) {
@@ -136,29 +118,11 @@ function CreatingTheBoard(matrixEl) {
 }
 
 // add the element to the game-board
-function addElement(gameElement, i, j) {
+export function addElement(gameElement, i, j) {
   gameElement.style.gridRowStart = i;
   gameElement.style.gridColumnStart = j;
   gameBoard.appendChild(gameElement);
 }
-
-// the gamer celectd the pickaxe tool
-pickaxe.addEventListener("click", (event) => {
-  removeActiveClass(pickaxe, shovel, axe);
-  theGame.selectedTool = "pickaxe";
-});
-
-// the gamer celectd the shovel tool
-shovel.addEventListener("click", (event) => {
-  removeActiveClass(shovel, pickaxe, axe);
-  theGame.selectedTool = "shovel";
-});
-
-// the gamer celectd the axe tool
-axe.addEventListener("click", (event) => {
-  removeActiveClass(axe, shovel, pickaxe);
-  theGame.selectedTool = "axe";
-});
 
 //clicking on the gameboard
 gameBoard.addEventListener("click", (e) => {
@@ -223,27 +187,10 @@ inventory.addEventListener("click", (event) => {
   else theGame.isEmptyInventory = false;
 });
 
-//moving the active class to the selected tool
-function removeActiveClass(eTarget, tool1, tool2) {
-  removeUnactiveClass(eTarget, tool1, tool2);
-  eTarget.classList.add("active-btn");
-  tool1.classList.remove("active-btn");
-  tool2.classList.remove("active-btn");
-}
-
-// remove the red board after clicking on valid tiels
-function removeUnactiveClass(eTarget, tool1, tool2) {
-  eTarget.classList.remove("unactive-btn");
-  tool1.classList.remove("unactive-btn");
-  tool2.classList.remove("unactive-btn");
-}
-
 // save the class of the last tile in the inventory
 function inventoryClasses(eTargetClass) {
-  console.dir(inventory.classList);
   inventory.classList = "";
   inventory.classList.add(`${eTargetClass}`);
-  console.dir(inventory.classList);
 }
 
 // remove the class from the inventory
@@ -255,11 +202,12 @@ function resetInventory() {
 
 //reset the game-board
 resetButton.addEventListener("click", (event) => {
+  gameBoard.style.backgroundColor = "rgb(89, 177, 218)";
   resetGame(matrix);
 });
 
 //reset the game
-function resetGame(matrixEl) {
+export function resetGame(matrixEl) {
   gameBoard.innerHTML = "";
   theGame.selectedTool = "";
   theGame.clickedOnInventory = false;
