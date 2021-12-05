@@ -1,0 +1,192 @@
+.side-bar {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  /* justify-content: center; */
+  align-items: center;
+  height: 100vh;
+  width: 20vw;
+  background-color: black;
+}
+
+.side-bar button {
+  width: 7rem;
+  height: 7rem;
+  margin-left: 10rem;
+}
+
+.btn-tool_size {
+  width: 5rem;
+  height: 5rem;
+}
+
+.btn-start_size {
+  width: 7rem;
+  height: 4rem;
+  font-size: 1.4rem;
+  font-weight: bold;
+  background-color: rgb(126, 79, 79);
+}
+
+.pickaxe-btn_img {
+  background: url(/images/Enchanted_Diamond_Pickaxe.gif) no-repeat center
+    center/cover;
+}
+
+.shovel-btn_img {
+  background: url(/images/Enchanted_Diamond_Shovel.gif) no-repeat center
+    center/cover;
+}
+
+.axi-btn_img {
+  background: url(/images/Enchanted_Netherite_Axe.gif) no-repeat center
+    center/cover;
+}
+
+.landing-page {
+  position: absolute;
+  width: 80vw;
+  height: 100vh;
+  background: url(/images/maxresdefault.jpg) no-repeat center center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.game-container {
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.game-board {
+  background-color: rgb(89, 177, 218);
+  width: 60vw;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: repeat(20, 1fr);
+  grid-template-columns: repeat(20, 1fr);
+}
+
+.blue {
+  background-color: rgb(89, 177, 218);
+}
+.green {
+  background: url(/images/tree.jfif) no-repeat center center/cover;
+}
+
+.brown {
+  background: url(/images/dirt.jpg) no-repeat center center/cover;
+}
+
+.darkbrown {
+  background: url(/images/minecraft_tree.jpg) no-repeat center center/cover;
+}
+
+.gray {
+  background: url(/images/minecraft_stone_brick_simple_texture_wallpaper_by_elbarnzo_d82j2kd-fullview.jpg)
+    no-repeat center center/cover;
+}
+
+.white {
+  background-color: white;
+}
+
+.packs {
+  background: url(/images/floor.jpg) no-repeat center center/cover;
+}
+
+.stones {
+  background: url(/images/stones.png) no-repeat center center/cover;
+}
+
+.active-btn {
+  border: 0.4rem solid rgb(34, 124, 228);
+}
+
+.unactive-btn {
+  border: 0.4rem solid rgb(233, 20, 37);
+}
+
+.reset-btn {
+  width: 7rem;
+  height: 4rem;
+  font-size: 1.4rem;
+  background-color: cornflowerblue;
+}
+
+.game-extra {
+  width: 15vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.game-extra button {
+  width: 5rem;
+  height: 5rem;
+  font-size: 1.2rem;
+  margin: 2rem;
+  background-color: rgb(104, 163, 143);
+  font-weight: bold;
+}
+
+.game-board div:hover {
+  border: 0.1rem solid rgb(224, 219, 219);
+}
+
+#inventory {
+  width: 4rem;
+  height: 4rem;
+}
+
+@media (max-width: 600px) {
+  .landing-page {
+    width: 100vw;
+    height: 70vh;
+  }
+
+  .game-container {
+    display: grid;
+    grid-template-rows: repeat(1, 1fr);
+  }
+
+  .side-bar {
+    height: 20vh;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    justify-content: none;
+    align-items: center;
+    background-color: white;
+    align-items: center;
+  }
+
+  .side-bar button {
+    padding: 0;
+    margin: 0.5rem;
+    width: 5rem;
+    height: 5rem;
+  }
+
+  .btn-tool_size {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .game-board {
+    width: 100vw;
+    height: 70vh;
+  }
+
+  .pickaxe-btn_img,
+  .shovel-btn_img,
+  .axi-btn_img {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .game-extra {
+    width: 100vw;
+    height: 13vh;
+  }
+}
