@@ -113,8 +113,6 @@ function CreatingTheBoard(matrixEl) {
         case 1:
           gameElement.classList.add(colors.gray);
           break;
-        // default:
-        //   gameElement.classList.add(colors.blue);
       }
       addElement(gameElement, i, j);
     }
@@ -205,12 +203,6 @@ inventory.addEventListener("click", (event) => {
   if (!inventory.classList.value) theGame.isEmptyInventory = true;
   else theGame.isEmptyInventory = false;
 });
-
-// turning divs to blue
-// function turnBlue(newClass, eTarget) {
-//   eTarget.classList.remove(eTarget.classList.value);
-//   eTarget.classList.add(newClass);
-// }
 
 //moving the active class to the selected tool
 function removeActiveClass(eTarget, tool1, tool2) {
