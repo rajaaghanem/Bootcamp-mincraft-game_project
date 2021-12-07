@@ -4,7 +4,6 @@ const darkBoard = document.querySelector('[data-board="dark-board"]');
 const firstBoard = document.querySelector('[data-board="first-board"]');
 const secoundBoard = document.querySelector('[data-board="secound-board"]');
 
-
 export let matrix = [
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -30,7 +29,7 @@ export let matrix = [
   [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
 ];
 
-export let matrixSecound = [
+let matrixSecound = [
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0, 5, 5, 5, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -55,7 +54,7 @@ export let matrixSecound = [
   [7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7],
 ];
 
-export let matrixDark = [
+let matrixDark = [
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -83,13 +82,6 @@ export let matrixDark = [
   [7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7],
 ];
 
-// darkBoard.addEventListener("click", (event) => {
-//   theGame.board = "dark";
-//   gameBoard.style.backgroundColor = "black";
-//   resetGame(matrixDark);
-//   CreatingTheBoard(matrixDark);
-// });
-
 darkBoard.addEventListener("click", (event) => {
   theGame.board = "dark";
   gameBoard.style.backgroundColor = "black";
@@ -108,9 +100,7 @@ secoundBoard.addEventListener("click", (event) => {
   boardCreating(matrixSecound);
 });
 
-
-function boardCreating (matrixEl){
+function boardCreating(matrixEl) {
   resetGame(matrixEl);
   CreatingTheBoard(matrixEl);
 }
-
