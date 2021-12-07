@@ -3,6 +3,7 @@ export const pickaxe = document.querySelector(".pickaxe-btn");
 export const shovel = document.querySelector(".shovel-btn");
 export const axe = document.querySelector(".axi-btn");
 
+// the gamer selectd the pickaxe tool
 pickaxe.addEventListener("click", (event) => {
   removeActiveClass(pickaxe, shovel, axe);
   theGame.selectedTool = "pickaxe";
