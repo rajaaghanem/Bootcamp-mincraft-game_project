@@ -1,6 +1,5 @@
-import { matrix } from "/game_board-first.js";
-import { matrixSecound } from "/game_board-secound.js";
-import { matrixDark } from "/dark_mode-board.js";
+
+import {matrix} from "/boards.js";
 import { pickaxe, shovel, axe } from "/tools.js";
 import { inventory, inventoryClasses, resetInventory } from "/inventory.js";
 
@@ -15,21 +14,6 @@ export let theGame = {
   isEmptyInventory: true,
   board: "first",
 };
-
-// export let colors = {
-//   green: "green",
-//   brown: "brown",
-//   darkbrown: "darkbrown",
-//   white: "white",
-//   blue: "blue",
-//   gray: "gray",
-//   packs: "packs",
-//   stones: "stones",
-//   darkPacks: "dark-packs",
-//   darkGreen: "dark-green",
-//   darkBrownMode: "dark-mode-brwon",
-//   darkOak: "dark-oak",
-// };
 
 export let colors = {
   1: "gray",
@@ -51,6 +35,7 @@ startButton.addEventListener("click", (event) => {
   CreatingTheBoard(matrix);
 });
 
+//creating the elements of the matrix
 export function CreatingTheBoard(matrixEl) {
   gameBoard.innerHTML = "";
   for (let i = 0; i < matrixEl.length; i++) {
