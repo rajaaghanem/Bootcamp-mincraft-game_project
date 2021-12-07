@@ -16,19 +16,33 @@ export let theGame = {
   board: "first",
 };
 
+// export let colors = {
+//   green: "green",
+//   brown: "brown",
+//   darkbrown: "darkbrown",
+//   white: "white",
+//   blue: "blue",
+//   gray: "gray",
+//   packs: "packs",
+//   stones: "stones",
+//   darkPacks: "dark-packs",
+//   darkGreen: "dark-green",
+//   darkBrownMode: "dark-mode-brwon",
+//   darkOak: "dark-oak",
+// };
+
 export let colors = {
-  green: "green",
-  brown: "brown",
-  darkbrown: "darkbrown",
-  white: "white",
-  blue: "blue",
-  gray: "gray",
-  packs: "packs",
-  stones: "stones",
-  darkPacks: "dark-packs",
-  darkGreen: "dark-green",
-  darkBrownMode: "dark-mode-brwon",
-  darkOak: "dark-oak",
+  1: "gray",
+  2: "green",
+  4: "brown",
+  3: "darkbrown",
+  5: "white",
+  6: "packs",
+  7: "stones",
+  8: "dark-packs",
+  9: "dark-green",
+  10: "dark-mode-brwon",
+  11: "dark-oak",
 };
 
 //starting the game
@@ -37,48 +51,12 @@ startButton.addEventListener("click", (event) => {
   CreatingTheBoard(matrix);
 });
 
-//creating the elements
 export function CreatingTheBoard(matrixEl) {
   gameBoard.innerHTML = "";
   for (let i = 0; i < matrixEl.length; i++) {
     for (let j = 0; j < matrixEl[i].length; j++) {
       let gameElement = document.createElement("div");
-
-      switch (matrixEl[i][j]) {
-        case 11:
-          gameElement.classList.add(colors.darkOak);
-          break;
-        case 10:
-          gameElement.classList.add(colors.darkBrownMode);
-          break;
-        case 9:
-          gameElement.classList.add(colors.darkGreen);
-          break;
-        case 8:
-          gameElement.classList.add(colors.darkPacks);
-          break;
-        case 7:
-          gameElement.classList.add(colors.stones);
-          break;
-        case 6:
-          gameElement.classList.add(colors.packs);
-          break;
-        case 5:
-          gameElement.classList.add(colors.white);
-          break;
-        case 4:
-          gameElement.classList.add(colors.brown);
-          break;
-        case 3:
-          gameElement.classList.add(colors.darkbrown);
-          break;
-        case 2:
-          gameElement.classList.add(colors.green);
-          break;
-        case 1:
-          gameElement.classList.add(colors.gray);
-          break;
-      }
+      gameElement.classList.add(colors[matrixEl[i][j]]);
       addElement(gameElement, i, j);
     }
   }
@@ -91,7 +69,7 @@ function addElement(gameElement, i, j) {
   gameBoard.appendChild(gameElement);
 }
 
-//clicking on the gameboard
+
 gameBoard.addEventListener("click", (e) => {
   if (theGame.clickedOnInventory && !theGame.isEmptyInventory) {
     e.target.classList = "";
@@ -101,8 +79,8 @@ gameBoard.addEventListener("click", (e) => {
     switch (theGame.selectedTool) {
       case "pickaxe":
         if (
-          e.target.classList.value === colors.gray ||
-          e.target.classList.value === colors.stones
+          e.target.classList.value === colors[1] ||
+          e.target.classList.value === colors[7]
         ) {
           inventoryClasses(e.target.classList.value);
           pickaxe.classList.remove("unactive-btn");
@@ -112,10 +90,10 @@ gameBoard.addEventListener("click", (e) => {
 
       case "shovel":
         if (
-          e.target.classList.value === colors.brown ||
-          e.target.classList.value === colors.packs ||
-          e.target.classList.value === colors.darkPacks ||
-          e.target.classList.value === colors.darkBrownMode
+          e.target.classList.value === colors[4] ||
+          e.target.classList.value === colors[6] ||
+          e.target.classList.value === colors[8] ||
+          e.target.classList.value === colors[10]
         ) {
           inventoryClasses(e.target.classList.value);
           shovel.classList.remove("unactive-btn");
@@ -125,10 +103,10 @@ gameBoard.addEventListener("click", (e) => {
 
       case "axe":
         if (
-          e.target.classList.value === colors.darkbrown ||
-          e.target.classList.value === colors.green ||
-          e.target.classList.value === colors.darkGreen ||
-          e.target.classList.value === colors.darkOak
+          e.target.classList.value === colors[3] ||
+          e.target.classList.value === colors[2] ||
+          e.target.classList.value === colors[9] ||
+          e.target.classList.value === colors[11]
         ) {
           inventoryClasses(e.target.classList.value);
           axe.classList.remove("unactive-btn");
@@ -138,6 +116,8 @@ gameBoard.addEventListener("click", (e) => {
     }
   }
 });
+
+
 
 //reset the game-board
 resetButton.addEventListener("click", (event) => {
